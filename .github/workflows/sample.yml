@@ -31,4 +31,4 @@ jobs:
       - uses: 'ros-industrial/industrial_ci@master'
         env:
           ROS_DISTRO: melodic
-          ROS_REPO: main
+          ROS_REPO: testing
