@@ -17,11 +17,13 @@ jobs:
       fail-fast: false
       matrix:
         linter: [cppcheck, cpplint, uncrustify, xmllint]
-　　steps:
+    steps:
       - uses: ros-tooling/setup-ros@v0.1
       - uses: ros-tooling/action-ros-ci@v0.1
         with:
-          colcon-mixin-name: asan
-          colcon-mixin-repository: https://raw.githubusercontent.com/colcon/colcon-mixin-repository/3e627e0fa30db85aea05a50e2c61a9832664d236/index.yaml
           package-name: my_package
           target-ros2-distro: foxy
+          colcon-mixin-name: coverage-gcc
+          # If possible, pin the repository in the workflow to a specific commit to avoid
+          # changes in colcon-mixin-repository from breaking your tests.
+          colcon-mixin-repository: https://raw.githubusercontent.com/colcon/colcon-mixin-repository/5c45b95018788deff62202aaa831ad4c20ebe2c6/index.yaml
