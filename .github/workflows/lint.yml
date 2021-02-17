@@ -21,9 +21,5 @@ jobs:
       - uses: ros-tooling/setup-ros@v0.1
       - uses: ros-tooling/action-ros-ci@v0.1
         with:
-          package-name: my_package
+          package-name: ament_copyright
           target-ros2-distro: foxy
-          colcon-mixin-name: coverage-gcc
-          # If possible, pin the repository in the workflow to a specific commit to avoid
-          # changes in colcon-mixin-repository from breaking your tests.
-          colcon-mixin-repository: https://raw.githubusercontent.com/colcon/colcon-mixin-repository/5c45b95018788deff62202aaa831ad4c20ebe2c6/index.yaml
