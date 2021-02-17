@@ -18,8 +18,6 @@ on: [push, pull_request] # on all pushes and PRs
 jobs:
   industrial_ci:
     env:
-      ROS_DISTRO: melodic
-      ROS_REPO: main
       CCACHE_DIR: /github/home/.ccache # Directory for ccache (and how we enable ccache in industrial_ci)
     runs-on: ubuntu-latest
     steps:
@@ -31,4 +29,6 @@ jobs:
           key: ccache-${{ matrix.env.ROS_DISTRO }}-${{ matrix.env.ROS_REPO }}
       # Run industrial_ci
       - uses: 'ros-industrial/industrial_ci@master'
-        env: ${{ matrix.env }}
+        env:
+          ROS_DISTRO: melodic
+          ROS_REPO: main
